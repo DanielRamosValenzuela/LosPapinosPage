@@ -1,6 +1,7 @@
 import { apiUrl } from "./config";
 import axios from "axios";
 
+// Conexion con el backend
 export const getProducts = async (id) => {
   try {
     const response = await axios({

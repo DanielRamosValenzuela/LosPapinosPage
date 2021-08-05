@@ -575,7 +575,7 @@ nav .search-icon {
   }
 }
 
-#productosSingle .detalles .detalles-accion button {
+#productosSingle .detalles .detalles-accion .boton {
   font: 1.6rem;
   padding: 1rem;
   border: 0.1rem #808080 solid;
@@ -584,7 +584,7 @@ nav .search-icon {
   cursor: pointer;
 }
 
-#productosSingle .detalles .detalles-accion button:hover {
+#productosSingle .detalles .detalles-accion .boton:hover {
   border: 0.1rem #404040 solid;
 }
 

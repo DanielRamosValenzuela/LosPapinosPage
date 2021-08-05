@@ -1,8 +1,8 @@
 import Error404Screen from "./js/screens/Error404Screen.js";
 import HomeScreen from "./js/screens/HomeScreen.js";
 import ProductScreen from "./js/screens/ProductScreen.js";
-import { parseRequestUrl } from "./js/utils.js";
 import CarroScreen from "./js/screens/CarrroScreen.js";
+import { parseRequestUrl } from "./js/utils.js";
 
 import "./styles.css";
 import "./css/all.min.css";

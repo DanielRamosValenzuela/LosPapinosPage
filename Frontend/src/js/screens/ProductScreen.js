@@ -56,7 +56,7 @@ const ProductScreen = {
                 }
               </li>
               <li>
-                <button id="boton-comprar" class="btn btn-primary">Añadir al carro</button>
+                <button id="boton-comprar" class="btn btn-primary boton">Añadir al carro</button>
               </li>
           </ul>
         </div>
