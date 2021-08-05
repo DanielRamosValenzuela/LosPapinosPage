@@ -1,0 +1,11 @@
+//General
+@import "sass/general";
+// Principales
+@import "sass/navbar";
+@import "sass/primerCarousel";
+@import "sass/footer";
+@import "sass/productos";
+@import "sass/productoScreen";
+
+// Externos
+@import "../node_modules/bootstrap/scss/bootstrap";

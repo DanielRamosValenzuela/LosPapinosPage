@@ -1,0 +1,131 @@
+#productos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  .container-carta {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    @media (min-width: 1141px) {
+      grid-row-gap: 0px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .carta-pan {
+      width: 100%;
+      @media (min-width: 1141px) {
+        margin: 0;
+        padding: 0;
+      }
+      @media (max-width: 1140px) {
+        background-color: #dcdcdc;
+      }
+
+      .contenido {
+        @media (max-width: 1140px) {
+          text-align: center;
+          padding: 10px;
+        }
+        .nombre-produco {
+          h3 {
+            font-size: 18px;
+            font-weight: 500;
+            color: #333;
+            margin: 5px 0;
+          }
+        }
+
+        .carta-precio {
+          @media (max-width: 1140) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          h2 {
+            font-size: 20px;
+            color: $primary;
+            font-weight: 500;
+          }
+        }
+      }
+
+      .producto-rating {
+        span:last-child {
+          color: #444444;
+          margin-left: 5px;
+        }
+      }
+
+      .imagen-box {
+        position: relative;
+        width: 100%;
+        height: 310px;
+        overflow: hidden;
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          transition: 0.5 ease-in-out;
+
+          @media (min-width: 1141px) {
+          }
+        }
+      }
+    }
+  }
+}
+
+.contenido {
+  @media (min-width: 1141px) {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    bottom: 19.7em;
+    margin-bottom: -127px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
+    transition: opacity 0.25s;
+
+    h3 {
+      position: relative;
+      top: 8em;
+    }
+
+    h2 {
+      position: relative;
+      top: 7.2em;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.contenido > * {
+  @media (min-width: 1141px) {
+    transform: translateY(20px);
+    transition: transform 0.25s;
+  }
+}
+
+.contenido:hover > * {
+  transform: translateY(0px);
+}
