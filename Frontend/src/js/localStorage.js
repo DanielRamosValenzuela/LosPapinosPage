@@ -1,11 +1,11 @@
 //Consigo los panes del storage
-export const getObjCarro = () => {
-  const objetosCarro = localStorage.getItem("objetosCarro")
-    ? JSON.parse(localStorage.getItem("objetosCarro"))
+export const getItemCarro = () => {
+  const carroItems = localStorage.getItem("carroItems")
+    ? JSON.parse(localStorage.getItem("carroItems"))
     : [];
-  return objetosCarro;
+  return carroItems;
 };
 // Envío los panes del storage
-export const setObjetosCarro = (objetosCarro) => {
-  localStorage.setItem("objetosCarro", JSON.stringify(objetosCarro));
+export const setCarroItem = (carroItems) => {
+  localStorage.setItem("carroItems", JSON.stringify(carroItems));
 };

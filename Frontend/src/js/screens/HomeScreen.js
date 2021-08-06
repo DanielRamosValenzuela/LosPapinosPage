@@ -168,7 +168,6 @@ const HomeScreen = {
                             </div>
                             <div class="carta-precio">
                                 <h2>$${producto.precio}</h2>
-                                <p>Stock: ${producto.stock}</p>
                             </div>
                             <div class="producto-rating">
                               ${Rating.render({

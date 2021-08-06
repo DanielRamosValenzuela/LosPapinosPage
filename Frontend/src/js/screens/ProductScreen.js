@@ -51,8 +51,8 @@ const ProductScreen = {
               <li>
                 Estado: ${
                   producto.stock > 0
-                    ? `<span class="exito">En stock</span>`
-                    : `<span class="vacio">Sin stock</span>`
+                    ? `<span class="exito">Disponible</span>`
+                    : `<span class="vacio">No disponible</span>`
                 }
               </li>
               <li>

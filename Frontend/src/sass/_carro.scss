@@ -1,0 +1,73 @@
+.carro-container {
+  padding: 1rem;
+  margin-top: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  @media (max-width: 750px) {
+    margin-top: 25%;
+  }
+  .carro-lista {
+    flex: 3 1 60rem;
+    h3 {
+      margin: 0;
+    }
+
+    button,
+    select {
+      font-size: 1rem;
+      padding: 0.5rem;
+    }
+  }
+
+  .carro-lista-container {
+    padding: 1rem;
+    list-style-type: none;
+    li {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+      border-bottom: 0.1rem #c0c0c0 solid;
+
+      &:first-child {
+        align-items: flex-end;
+      }
+    }
+
+    img {
+      max-width: 10rem;
+      max-height: 10rem;
+    }
+  }
+
+  .carro-imagen {
+    flex: 1 1;
+  }
+
+  .carro-nombre {
+    flex: 8 1;
+    a {
+      text-decoration: none;
+      &:hover {
+        color: $secondary;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  //   .carro-precio {
+  //     flex: 1 1;
+  //   }
+
+  .carro-accion {
+    flex: 1 1 20rem;
+    background-color: #f0f0f0;
+    border-radius: 0.5rem;
+    padding: 1rem;
+  }
+}
+
+.carro-nombre > div {
+  padding: 1rem;
+}

@@ -13,4 +13,10 @@ $secondary: #17e3c5;
 body {
   height: 100vh;
   margin: 0;
+  min-height: 100vh;
+}
+
+footer {
+  bottom: 0;
+  width: 100%;
 }
