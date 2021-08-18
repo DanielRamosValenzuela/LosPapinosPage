@@ -12,6 +12,7 @@ const ProductScreen = {
   render: async () => {
     const request = parseRequestUrl();
     const producto = await getProducts(request.id);
+    // console.log("producto", Array.isArray(JSON.parse(producto.categoria)));
     if (producto.error) {
       return `
       <section id="productos" class="pb-5 mb-5">
@@ -35,24 +36,35 @@ const ProductScreen = {
                 text: `${producto.vistos} vistos`,
               })}
             </li>
-            <li>Precio: <strong>$${producto.precio}</strong></li>
+            <li>Precio: <strong class="btn btn-dark disabled">$${
+              producto.precio
+            }</strong></li>
+            <li>
+              <span>Tipo:</span>
+              <div class="btn btn-success disabled">
+                ${JSON.parse(producto.categoria).join(", ")}
+              </div>
+            </li>
             <li>
               <span>Descripción:</span>
               <div>
                 ${producto.descripcion}
               </div>
             </li>
-            <li><a href="/#/" class=""><i class="fas fa-backward"></i> Volver a la tienda</a></li>
+            <li></li>
+            <li><a href="/#/" class="btn btn-warning"><i class="fas fa-backward" style="color: black"></i> Volver a la tienda</a></li>
           </ul>
         </div>
         <div class="detalles-accion">
           <ul>
-              <li>Precio: $${producto.precio}</li>
+              <li>Precio: <strong class="btn btn-dark disabled">$${
+                producto.precio
+              }</strong></li>
               <li>
                 Estado: ${
                   producto.stock > 0
-                    ? `<span class="exito">Disponible</span>`
-                    : `<span class="vacio">No disponible</span>`
+                    ? `<span class="btn btn-success disabled">Disponible</span>`
+                    : `<span class="btn btn-danger disabled">No disponible</span>`
                 }
               </li>
               <li>

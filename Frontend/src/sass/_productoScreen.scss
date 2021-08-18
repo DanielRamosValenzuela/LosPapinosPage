@@ -1,6 +1,6 @@
 #productosSingle {
-  margin-top: 7%;
-  margin-bottom: 15%;
+  padding-top: 10%;
+  padding-bottom: 10%;
   .detalles {
     display: flex;
     justify-content: space-between;
@@ -38,9 +38,6 @@
       }
       a {
         text-decoration: none;
-        &:hover {
-          color: $secondary;
-        }
       }
     }
     .detalles-accion {
@@ -63,13 +60,6 @@
         &:hover {
           border: 0.1rem #404040 solid;
         }
-      }
-      .exito {
-        color: #40c040;
-      }
-
-      .vacio {
-        color: #c04040;
       }
     }
   }

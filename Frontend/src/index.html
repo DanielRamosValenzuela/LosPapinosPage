@@ -21,7 +21,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
     />
-    <title>Papinos</title>
+    <title>Los Papinos</title>
   </head>
   <body>
     <!-- Inicio de navbar -->
@@ -47,7 +47,7 @@
               data-bs-target="#offcanvasLeft"
               aria-controls="offcanvasLeft"
             >
-              Productos</a
+              Categorías</a
             >
           </li>
           <li><a href="#">Local</a></li>
@@ -78,38 +78,11 @@
         </form>
 
         <div class="shop-icon me-4">
-          <button
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasRight"
-            aria-controls="offcanvasRight"
-            a
-          >
+          <button type="button" id="buttonCarro">
             <i class="fas fa-shopping-cart"></i>
           </button>
         </div>
       </nav>
-
-      <!-- Inicio de Offcanvas -->
-
-      <!-- Offcanvas carrito -->
-      <div
-        class="offcanvas offcanvas-end"
-        tabindex="-1"
-        id="offcanvasRight"
-        aria-labelledby="offcanvasRightLabel"
-      >
-        <div class="offcanvas-header">
-          <h5 id="offcanvasRightLabel">Su carrito</h5>
-          <button
-            type="button"
-            class="btn-close text-reset"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="offcanvas-body">...</div>
-      </div>
 
       <!-- Offcanvas productos -->
 
@@ -118,23 +91,7 @@
         tabindex="-1"
         id="offcanvasLeft"
         aria-labelledby="offcanvasLeftLabel"
-      >
-        <div class="offcanvas-header">
-          <h5 id="offcanvasLeftLabel">Productos</h5>
-          <button
-            type="button"
-            class="btn-close text-reset"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="offcanvas-body offcanvas-productos">
-          <li><a href="#">Pan de clásico</a></li>
-          <li><a href="#">Pan integral</a></li>
-          <li><a href="#">Pan de avena</a></li>
-          <li><a href="#">Pan dulce</a></li>
-        </div>
-      </div>
+      ></div>
 
       <!-- Fin del offcanvas -->
     </header>
@@ -144,7 +101,7 @@
     <main id="main-container"></main>
     <!-- Aqui termina el cuerpo -->
     <!-- Inicio footer -->
-    <footer class="bg-dark text-white position-relative">
+    <footer class="bg-dark text-white">
       <div class="container-fluid text-center text-md-left">
         <div class="row text-center text-md-left">
           <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">

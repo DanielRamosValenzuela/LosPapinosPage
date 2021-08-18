@@ -9,3 +9,7 @@ export const getItemCarro = () => {
 export const setCarroItem = (carroItems) => {
   localStorage.setItem("carroItems", JSON.stringify(carroItems));
 };
+
+export const borraLocalStorage = () => {
+  localStorage.setItem("carroItems", []);
+};

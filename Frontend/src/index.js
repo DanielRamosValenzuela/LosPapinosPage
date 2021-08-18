@@ -2,6 +2,9 @@ import Error404Screen from "./js/screens/Error404Screen.js";
 import HomeScreen from "./js/screens/HomeScreen.js";
 import ProductScreen from "./js/screens/ProductScreen.js";
 import CarroScreen from "./js/screens/CarroScreen.js";
+import CategoriasOffcanvas from "./js/offcanvas/CategoriasOffcanvas.js";
+import LoginScreen from "./js/screens/LoginScreen.js";
+
 import { parseRequestUrl } from "./js/utils.js";
 
 import "./styles.css";
@@ -14,7 +17,8 @@ const routes = {
   "/": HomeScreen,
   "/producto/:id": ProductScreen,
   "/carro/:id": CarroScreen,
-  "/carro/": CarroScreen,
+  "/carro": CarroScreen,
+  "/iniciarsesion": LoginScreen,
 };
 
 // Paso de la información al html
@@ -24,15 +28,33 @@ const router = async () => {
     (request.resource ? `/${request.resource}` : "/") +
     (request.id ? "/:id" : "") +
     (request.verb ? `/${request.verb}` : "");
+  // console.log("parselURL", parseUrl);
   const screen = routes[parseUrl] ? routes[parseUrl] : Error404Screen;
-  const main = document.getElementById("main-container");
+  const main = document.getElementById("main-container"); // Inserta el main html element
   main.innerHTML = await screen.render();
-  await screen.after_render();
+
+  if (screen.after_render) await screen.after_render();
 };
 
 window.addEventListener("load", router);
 window.addEventListener("hashchange", router);
 
+// Offcanvas carrito
+const ButtonCarro = async () => {
+  document.getElementById("buttonCarro").addEventListener("click", () => {
+    document.location.hash = `/carro`;
+  });
+};
+ButtonCarro();
+
+// Ofcanvas categorias
+
+const offcanvasCategorias = async () => {
+  const offcanvasLeft = document.getElementById("offcanvasLeft");
+  offcanvasLeft.innerHTML = await CategoriasOffcanvas.render();
+};
+window.addEventListener("load", offcanvasCategorias);
+window.addEventListener("hashchange", offcanvasCategorias);
 // Navbar
 const menuBtn = document.querySelector(".menu-icon span");
 const searchBtn = document.querySelector(".search-icon");

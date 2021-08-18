@@ -1,12 +1,12 @@
 import { parseRequestUrl, rerender } from "../utils";
 import { getProducts } from "../api";
-import { getItemCarro, setCarroItem } from "../localStorage";
+import { borraLocalStorage, getItemCarro, setCarroItem } from "../localStorage";
 
 // Funciones para agregar al carrito y que quede en local storage
 const agregarCarro = (item, forceUpdate = false) => {
   let carroItems = getItemCarro();
   const itemExistente = carroItems.find((x) => x.producto === item.producto);
-  if (itemExistente) {
+  if (!!itemExistente) {
     if (forceUpdate) {
       carroItems = carroItems.map((x) =>
         x.producto === itemExistente.producto ? item : x

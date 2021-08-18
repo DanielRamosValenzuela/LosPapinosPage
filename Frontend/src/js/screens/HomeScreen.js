@@ -1,8 +1,10 @@
 import Rating from "../components/Rating";
+import { apiUrl } from "../config";
 
 const HomeScreen = {
   render: async () => {
-    const response = await fetch("http://localhost:5000/api/productos", {
+    const response = await fetch(`${apiUrl}/api/producto/leeproducto`, {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
@@ -12,7 +14,7 @@ const HomeScreen = {
       return `<div>Error al obtener la data</div>`;
     }
 
-    const productos = await response.json();
+    const { data: productos } = await response.json();
     return `
             <section>
             <div
