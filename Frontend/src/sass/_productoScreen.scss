@@ -64,3 +64,16 @@
     }
   }
 }
+
+@media (max-width: 980px) {
+  #productosSingle {
+    padding-top: 20%;
+    padding-bottom: 20%;
+  }
+}
+@media (max-width: 480px) {
+  #productosSingle {
+    padding-top: 30%;
+    padding-bottom: 30%;
+  }
+}

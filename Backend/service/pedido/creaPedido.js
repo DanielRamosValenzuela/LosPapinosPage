@@ -1,30 +1,32 @@
 const sql = require("mssql");
 const dbconfig = require("../../database/dbconfig");
-
-const leeProducto = async (searchKeyword) => {
+// email, nombres, apellidos, userName , pwd, idOrganizacion, idPerfil, externoInterno
+const creaPedido = async (pedido) => {
   try {
-    const procedureName = `leeProducto`;
-    //console.log("lee leePedido sp", idUsuario);
+    const procedureName = `creaPedido`;
+
+    // console.log("creaPedido:", pedido);
     return await sql
       .connect(dbconfig)
       .then((pool) => {
-        console.log("DB on line leeProducto");
+        // console.log('DB on line Graba usuario');
         return pool
           .request()
-          .input("searchKeyword", sql.VarChar, searchKeyword)
+          .input("pedido", sql.VarChar, pedido)
           .execute(procedureName);
       })
       .then((result) => {
         const { recordset } = result;
-        //console.log(recordset);
-        return recordset;
+        console.log("CreaUsuario RESULT:", recordset);
+        return recordset[0];
       })
       .catch((err) => {
         console.log(err);
       });
+    return 5;
   } catch (err) {
     console.log(err);
     throw new Error("Error al conectar BD");
   }
 };
-module.exports = leeProducto;
+module.exports = creaPedido;

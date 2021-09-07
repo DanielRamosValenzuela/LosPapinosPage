@@ -1,0 +1,71 @@
+.pedido-container {
+  padding-top: 10%;
+  padding-bottom: 10%;
+  @media (max-width: 960px) {
+    padding-top: 20%;
+  }
+  @media (max-width: 570px) {
+    padding-top: 30%;
+  }
+
+  .order {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    justify-content: space-between;
+
+    h2 {
+      margin: 0;
+      padding-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    .carro-lista-container {
+      padding: 0;
+    }
+
+    .order-info {
+      flex: 3 1 60rem;
+    }
+  }
+
+  .order-action {
+    flex: 1 1 20rem;
+    border: 0.1rem #c0c0c0 solid;
+    border-radius: 0.5rem;
+    background-color: #fcfcfc;
+    padding: 1rem;
+
+    button {
+      width: 100%;
+    }
+    > ul {
+      padding: 0;
+      list-style-type: none;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .total {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #c04000;
+    }
+  }
+}
+
+.order-info > div {
+  border: 0.1rem #c0c0c0 solid;
+  border-radius: 0.5rem;
+  background-color: #fcfcfc;
+  padding: 1rem;
+  margin: 1rem;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}

@@ -1,23 +1,25 @@
 const sql = require("mssql");
 const dbconfig = require("../../database/dbconfig");
 
-const leeProducto = async (searchKeyword) => {
+const updatePassword = async (uid, password) => {
+  //para auth
   try {
-    const procedureName = `leeProducto`;
-    //console.log("lee leePedido sp", idUsuario);
+    const procedureName = `updatePassword`;
+    // console.log("leeUsuarioById sp", uid, direccion, rut, name, celular);
     return await sql
       .connect(dbconfig)
       .then((pool) => {
-        console.log("DB on line leeProducto");
+        console.log("DB on line updatePassword");
         return pool
           .request()
-          .input("searchKeyword", sql.VarChar, searchKeyword)
+          .input("uid", sql.Int, uid)
+          .input("password", sql.VarChar, password)
           .execute(procedureName);
       })
       .then((result) => {
         const { recordset } = result;
-        //console.log(recordset);
-        return recordset;
+        console.log("updateUsuario:", recordset);
+        return recordset[0];
       })
       .catch((err) => {
         console.log(err);
@@ -27,4 +29,4 @@ const leeProducto = async (searchKeyword) => {
     throw new Error("Error al conectar BD");
   }
 };
-module.exports = leeProducto;
+module.exports = updatePassword;

@@ -1,6 +1,6 @@
-import { getProducts } from "../api";
+import { getProduct } from "../api";
 import Rating from "../components/Rating";
-import { parseRequestUrl } from "../utils";
+import { hideLoading, parseRequestUrl, showLoading } from "../utils";
 
 const ProductScreen = {
   after_render: () => {
@@ -11,7 +11,8 @@ const ProductScreen = {
   },
   render: async () => {
     const request = parseRequestUrl();
-    const producto = await getProducts(request.id);
+    showLoading();
+    const producto = await getProduct(request.id);
     // console.log("producto", Array.isArray(JSON.parse(producto.categoria)));
     if (producto.error) {
       return `
@@ -20,6 +21,7 @@ const ProductScreen = {
       </section>;
       `;
     }
+    hideLoading();
     return `
     <section id="productosSingle">
 

@@ -1,5 +1,4 @@
 .carro-section-container {
-  padding-top: 10%;
   padding-bottom: 10%;
 }
 
@@ -75,4 +74,16 @@
 
 .carro-nombre > div {
   padding: 1rem;
+}
+
+@media (max-width: 1603px) and (min-width: 1329px) {
+  .boton {
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 437px) {
+  .boton {
+    margin-bottom: 5px;
+  }
 }

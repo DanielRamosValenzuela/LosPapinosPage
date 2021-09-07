@@ -21,9 +21,11 @@ const leeCategoriaCtrl = async (req, res = response) => {
   }
 };
 const leeProductoCtrl = async (req, res = response) => {
-  //   console.log("leeCategoriaCtrl");
+  const searchKeyword = req.query.searchKeyword;
+
+  console.log("leeProductoCtrl", searchKeyword);
   try {
-    const data = await leeProducto();
+    const data = await leeProducto(searchKeyword);
     //console.log('menuCtrl:',menu );
     res.json({
       ok: true,
@@ -38,7 +40,7 @@ const leeProductoCtrl = async (req, res = response) => {
 };
 
 const leeProductoByIDCtrl = async (req, res = response) => {
-  const { _id } = req.body;
+  const _id = req.params.id;
   //   console.log("leeProductoID", _id);
 
   try {

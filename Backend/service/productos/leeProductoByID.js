@@ -9,7 +9,10 @@ const leeProductoByID = async (_id) => {
       .connect(dbconfig)
       .then((pool) => {
         console.log("DB on line leeProductoByID");
-        return pool.request().input("_id", sql.Int, _id).execute(procedureName);
+        return pool
+          .request()
+          .input("_id", sql.VarChar, _id)
+          .execute(procedureName);
       })
       .then((result) => {
         const { recordset } = result;

@@ -1,6 +1,6 @@
-import { parseRequestUrl, rerender } from "../utils";
-import { getProducts } from "../api";
-import { borraLocalStorage, getItemCarro, setCarroItem } from "../localStorage";
+import { parseRequestUrl, redirectUser, rerender } from "../utils";
+import { getProduct } from "../api";
+import { getItemCarro, getUserInfo, setCarroItem } from "../localStorage";
 
 // Funciones para agregar al carrito y que quede en local storage
 const agregarCarro = (item, forceUpdate = false) => {
@@ -49,13 +49,13 @@ const CarroScreen = {
       });
     });
     document.getElementById("pagar-button").addEventListener("click", () => {
-      document.location.hash = "/registrarse";
+      redirectUser();
     });
   },
   render: async () => {
     const request = parseRequestUrl();
     if (request.id) {
-      const producto = await getProducts(request.id);
+      const producto = await getProduct(request.id);
       agregarCarro({
         producto: producto._id,
         nombre: producto.nombre,
@@ -67,13 +67,13 @@ const CarroScreen = {
     }
     const objetosCarrito = getItemCarro();
     return `
-        <section>
+        <section class="carro-section-container">
             <div class="carro-container">
               <div class="carro-lista">
                 <ul class="carro-lista-container">
                   <li>
                     <h3>Carro de compras</h3>
-                    <div>Precio</div>
+                    <div class="btn btn-dark disabled">Precio</div>
                   </li>
                   ${
                     objetosCarrito.length === 0
@@ -135,6 +135,9 @@ const CarroScreen = {
                   <button id="pagar-button" class="btn btn-primary boton">
                     Proceder a pagar
                   </button>
+                  <a href="/#/" class="btn btn-primary">
+                  <i class="fas fa-backward" style="color: black"></i> Volver a la tienda
+                  </a>
               </div>
             </div>
         </section>

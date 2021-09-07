@@ -34,7 +34,7 @@ const CategoriasOffcanvas = {
                 .map(
                   (x) => `
 
-            <li><a href="#">${x.descripcion}</a></li>
+            <li><a href="/?#/?q=${x.descripcion}">${x.descripcion}</a></li>
             `
                 )
                 .join("\n")

@@ -1,20 +1,18 @@
+import { getProducts } from "../api";
 import Rating from "../components/Rating";
-import { apiUrl } from "../config";
+import { hideLoading, parseRequestUrl, showLoading } from "../utils";
 
 const HomeScreen = {
   render: async () => {
-    const response = await fetch(`${apiUrl}/api/producto/leeproducto`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    if (!response || !response.ok) {
+    showLoading();
+    const { value } = parseRequestUrl();
+    const productos = await getProducts({ searchKeyword: value });
+    // console.log("productos", productos);
+    hideLoading();
+    if (productos.error || !productos.data) {
       return `<div>Error al obtener la data</div>`;
     }
 
-    const { data: productos } = await response.json();
     return `
             <section>
             <div
@@ -150,15 +148,20 @@ const HomeScreen = {
       <section id="productos" class="pb-5 mb-5">
 
         <div class="container-carta">
-            ${productos
-              .map(
-                (producto) => `
+
+
+            ${
+              productos.data.length === 0
+                ? `<div class="text-center">No existe el producto buscado</div>`
+                : productos.data
+                    .map(
+                      (producto) => `
                 <div class="carta-pan">
                     <div class="imagen-box">
                         <a href="/#/producto/${producto._id}">
                             <img src="${producto.imagen}" alt="${
-                  producto.nombre
-                }"/>
+                        producto.nombre
+                      }"/>
                         </a>
                     </div>
                     <a href="/#/producto/${
@@ -181,8 +184,9 @@ const HomeScreen = {
                     </a>  
                 </div>
             `
-              )
-              .join("\n")}
+                    )
+                    .join("\n")
+            }
         </div>
         </section>
         `;

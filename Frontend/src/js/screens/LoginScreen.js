@@ -1,6 +1,31 @@
+import { login } from "../api";
+import { getUserInfo, setUserInfo } from "../localStorage";
+import { hideLoading, redirectUser, showLoading, showMessage } from "../utils";
+
 const LoginScreen = {
-  after_render: () => {},
+  after_render: () => {
+    document
+      .getElementById("login-form")
+      .addEventListener("submit", async (e) => {
+        e.preventDefault();
+        showLoading();
+        const data = await login({
+          email: document.getElementById("email").value,
+          password: document.getElementById("password").value,
+        });
+        hideLoading();
+        if (data.error) {
+          showMessage("Clave o email inválido");
+        } else {
+          setUserInfo(data);
+          redirectUser();
+        }
+      });
+  },
   render: () => {
+    if (getUserInfo().name) {
+      redirectUser();
+    }
     return `
         <section class="login-section-container">
         <div class="form-container">

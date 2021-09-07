@@ -71,7 +71,7 @@ nav {
     display: flex;
     height: 40px;
     background: #1e232b;
-    min-width: 18% !important;
+    min-width: 12% !important;
     border: 1px solid rgba(155, 155, 155, 0.2);
     border-radius: 40px;
     z-index: 2;
@@ -160,9 +160,9 @@ nav .search-icon {
   display: none;
 }
 
-@media (max-width: 1245px) {
+@media (max-width: 1295px) {
   nav {
-    padding: 0 50px;
+    padding: 0 35px;
   }
 }
 @media (max-width: 1160px) {

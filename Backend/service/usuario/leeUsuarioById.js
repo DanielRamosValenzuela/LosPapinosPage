@@ -1,19 +1,16 @@
 const sql = require("mssql");
 const dbconfig = require("../../database/dbconfig");
 
-const leeUsuarioById = async (idUsuario) => {
+const leeUsuarioById = async (uid) => {
   //para auth
   try {
-    const procedureName = `LeeUsuarioByID`;
+    const procedureName = `leeUsuarioByID`;
     // console.log('leeUsuarioById sp', uid );
     return await sql
       .connect(dbconfig)
       .then((pool) => {
         console.log("DB on line LeeUsuarioByID");
-        return pool
-          .request()
-          .input("idUsuario", sql.Int, idUsuario)
-          .execute(procedureName);
+        return pool.request().input("uid", sql.Int, uid).execute(procedureName);
       })
       .then((result) => {
         const { recordset } = result;
